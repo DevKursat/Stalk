@@ -26,34 +26,34 @@ import { cn } from '@/lib/utils'
 
 const features = [
   {
-    icon: Search,
-    title: 'Detaylı Profil Analizi',
-    description: 'Kullanıcı adı ile kapsamlı profil bilgilerine anında erişin',
-  },
-  {
-    icon: BarChart3,
-    title: 'Takipçi İstatistikleri',
-    description: 'Takipçi artış/azalış trendlerini grafiklerle görüntüleyin',
-  },
-  {
-    icon: Bell,
-    title: 'Anlık Uyarılar',
-    description: 'Takip ettiğiniz profillerdeki değişikliklerden haberdar olun',
-  },
-  {
-    icon: Shield,
-    title: 'Gizlilik Odaklı',
-    description: 'Tüm aramalarınız tamamen anonim ve güvenli',
-  },
-  {
-    icon: Zap,
-    title: 'Hızlı Sonuçlar',
-    description: 'Saniyeler içinde detaylı sonuçlar alın',
+    icon: Lock,
+    title: 'Gizli Hesap Görüntüleme',
+    description: 'Gizli hesapların hikaye ve gönderilerini kolayca görüntüleyin',
   },
   {
     icon: Users,
-    title: 'Çoklu Platform',
-    description: 'Instagram, TikTok, WhatsApp ve daha fazlası',
+    title: 'Takip Değişiklikleri',
+    description: 'Kimi takip etti, kimi çıkardı - anlık bildirimlerle öğrenin',
+  },
+  {
+    icon: Eye,
+    title: 'Aktivite Takibi',
+    description: 'Hangi fotoğrafları beğendi, kimlere yorum yaptı görün',
+  },
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp Analizi',
+    description: 'Kiminle ne kadar konuştu, gece aktiviteleri ve daha fazlası',
+  },
+  {
+    icon: Bell,
+    title: 'Şüpheli Aktivite Uyarıları',
+    description: 'Gece aktiviteleri ve yeni takip edilen kişiler için anlık uyarılar',
+  },
+  {
+    icon: Shield,
+    title: '%100 Gizli & Anonim',
+    description: 'Karşı taraf asla öğrenemez. Tüm aramalar tamamen gizli',
   },
 ]
 
@@ -69,11 +69,11 @@ const plans = [
     name: 'Ücretsiz',
     price: '₺0',
     period: '/ay',
-    description: 'Başlangıç için ideal',
+    description: 'Merak ediyorsanız başlayın',
     features: [
-      'Günlük 3 arama',
-      'Sadece Instagram',
-      'Temel metrikler',
+      'Günlük 3 profil arama',
+      'Temel profil bilgileri',
+      'Son 3 gün takip değişiklikleri',
       'Reklam destekli',
     ],
     cta: 'Ücretsiz Başla',
@@ -83,54 +83,55 @@ const plans = [
     name: 'Premium',
     price: '₺149',
     period: '/ay',
-    description: 'Profesyoneller için',
+    description: 'Tam erişim isteyenler için',
     features: [
-      'Günlük 100 arama',
-      '4 platform erişimi',
-      'Detaylı analitik',
+      'Sınırsız profil arama',
+      'Gizli hesap içerikleri 🔓',
+      '90 gün takip geçmişi',
+      'Beğeni & yorum takibi',
+      'WhatsApp analizi',
+      'Gece aktivite raporu',
       'Anlık uyarılar',
-      'PDF export',
-      'Öncelikli destek',
       'Reklamsız deneyim',
     ],
     cta: 'Premium Al',
     popular: true,
   },
   {
-    name: 'Kurumsal',
-    price: '₺499',
+    name: 'VIP',
+    price: '₺299',
     period: '/ay',
-    description: 'Ajanslar için',
+    description: 'Her şeyi görmek isteyenler için',
     features: [
-      'Sınırsıza yakın arama',
-      'Tüm platformlar',
-      'API erişimi',
-      'White-label',
-      'Takım yönetimi',
-      '7/24 destek',
+      'Premium tüm özellikler',
+      '1 yıllık takip geçmişi',
+      'Silinen mesaj kurtarma',
+      'Konum takibi',
+      '7/24 öncelikli destek',
+      'Özel danışmanlık',
     ],
-    cta: 'İletişime Geç',
+    cta: 'VIP Ol',
     popular: false,
   },
 ]
 
 const testimonials = [
   {
-    name: 'Ahmet Y.',
-    role: 'Sosyal Medya Yöneticisi',
-    content: 'Rakip analizi için vazgeçilmez bir araç. Müşterilerime çok daha iyi hizmet verebiliyorum.',
+    name: 'Elif Y.',
+    role: 'İstanbul',
+    content: 'Şüphelerim vardı ve bu uygulama sayesinde gerçeği öğrendim. Gece 3te kiminle konuştuğunu gördüm.',
     rating: 5,
   },
   {
-    name: 'Zeynep K.',
-    role: 'İçerik Üreticisi',
-    content: 'Takipçi değişimlerimi anlık takip edebiliyorum. Hangi içeriklerin daha çok ilgi çektiğini görüyorum.',
+    name: 'Murat K.',
+    role: 'Ankara',
+    content: 'Gizli hesabı takip edemiyordum. Premium aldım ve tüm hikayelerini görebildim. Kesinlikle değer.',
     rating: 5,
   },
   {
-    name: 'Mert D.',
-    role: 'Dijital Pazarlamacı',
-    content: 'Premium özellikleri gerçekten değer. Yatırımın karşılığını fazlasıyla alıyorum.',
+    name: 'Selin A.',
+    role: 'İzmir',
+    content: 'Kimi takip ettiğini, kimlerin fotoğraflarını beğendiğini anında görüyorum. Artık merak etmiyorum.',
     rating: 5,
   },
 ]
@@ -184,18 +185,18 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <Badge variant="premium" className="mb-6">
-              <Zap className="w-3 h-3" /> Yeni: WhatsApp desteği eklendi!
+              <Zap className="w-3 h-3" /> %100 Gizli & Anonim - Karşı taraf asla göremez
             </Badge>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Sosyal Medyayı
+              Şüphelerin mi var?
               <br />
-              <span className="gradient-text">Keşfedin</span>
+              <span className="gradient-text">Gerçeği Öğren</span>
             </h1>
 
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
-              Instagram, TikTok, WhatsApp ve daha fazlası için güçlü analiz araçları. 
-              Profilleri derinlemesine analiz edin, trendleri takip edin.
+              Sevgilinin gizli hesaplarını gör, kimi takip ettiğini öğren, 
+              WhatsApp'ta kiminle konuştuğunu keşfet. Tamamen gizli ve güvenli.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
@@ -305,9 +306,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Güçlü Özellikler</h2>
+            <h2 className="text-4xl font-bold mb-4">Ne Yapabilirsin?</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Sosyal medya analizi için ihtiyacınız olan tüm araçlar tek bir platformda
+              Merak ettiğin her şeyi öğren - tamamen gizli ve anonim
             </p>
           </motion.div>
 
@@ -409,7 +410,7 @@ export default function HomePage() {
           >
             <h2 className="text-4xl font-bold mb-4">Kullanıcılarımız Ne Diyor?</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Binlerce kullanıcı İzci ile sosyal medyayı daha iyi anlıyor
+              Binlerce kişi İzci ile gerçeği öğrendi
             </p>
           </motion.div>
 
@@ -454,10 +455,10 @@ export default function HomePage() {
             
             <div className="relative px-8 py-16 text-center">
               <h2 className="text-4xl font-bold text-white mb-4">
-                Hemen Başlayın
+                Şüphelerinden Kurtul
               </h2>
               <p className="text-white/80 max-w-xl mx-auto mb-8">
-                Ücretsiz hesap oluşturun ve sosyal medya analizinin gücünü keşfedin
+                Ücretsiz hesap oluştur ve merak ettiğin her şeyi öğrenmeye başla
               </p>
               <Link href="/register">
                 <Button 
@@ -466,7 +467,7 @@ export default function HomePage() {
                   className="bg-white text-gray-900 hover:bg-gray-100"
                   rightIcon={<ChevronRight className="w-5 h-5" />}
                 >
-                  Ücretsiz Hesap Oluştur
+                  Hemen Başla - Ücretsiz
                 </Button>
               </Link>
             </div>

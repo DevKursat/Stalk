@@ -18,6 +18,9 @@ import {
   Crown,
   TrendingUp,
   Eye,
+  Activity,
+  Lock,
+  MessageCircle,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useUIStore, useUserStore } from '@/lib/store'
@@ -25,10 +28,10 @@ import { Avatar, Badge } from '@/components/ui'
 
 const menuItems = [
   { href: '/dashboard', icon: Home, label: 'Ana Sayfa' },
-  { href: '/search', icon: Search, label: 'Ara' },
-  { href: '/tracked', icon: Eye, label: 'Takip Edilenler' },
-  { href: '/reports', icon: FileText, label: 'Raporlar' },
-  { href: '/analytics', icon: TrendingUp, label: 'Analitik' },
+  { href: '/analyze', icon: Eye, label: 'Profil Analizi', highlight: true },
+  { href: '/search', icon: Search, label: 'Hızlı Arama' },
+  { href: '/tracked', icon: Users, label: 'Takip Listesi' },
+  { href: '/activity', icon: Activity, label: 'Aktiviteler' },
 ]
 
 const bottomItems = [
@@ -151,6 +154,7 @@ export function Sidebar() {
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {menuItems.map((item) => {
             const isActive = pathname === item.href
+            const isHighlight = 'highlight' in item && item.highlight
             return (
               <Link key={item.href} href={item.href}>
                 <motion.div
@@ -159,11 +163,18 @@ export function Sidebar() {
                     'flex items-center gap-3 px-4 py-3 rounded-xl transition-colors',
                     isActive
                       ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-white border border-purple-500/30'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                      : isHighlight
+                        ? 'bg-gradient-to-r from-purple-600/30 to-pink-600/30 text-white border border-purple-500/50 hover:from-purple-600/40 hover:to-pink-600/40'
+                        : 'text-gray-400 hover:text-white hover:bg-gray-800'
                   )}
                 >
-                  <item.icon className={cn('w-5 h-5', isActive && 'text-purple-400')} />
+                  <item.icon className={cn('w-5 h-5', (isActive || isHighlight) && 'text-purple-400')} />
                   <span className="font-medium">{item.label}</span>
+                  {isHighlight && !isActive && (
+                    <span className="ml-auto text-xs bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-0.5 rounded-full">
+                      Yeni
+                    </span>
+                  )}
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
